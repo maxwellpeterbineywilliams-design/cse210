@@ -1,5 +1,5 @@
+
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 class Program
 {
@@ -7,25 +7,27 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Exercise3 Project.");
 
-        Random generator = new Random();
-        int randomNumber = generator.Next(1, 101);
-        Console.WriteLine($"The random number is: {randomNumber}");
+        // Generate a random magic number between 1 and 100
+        Random randomGenerator = new Random();
+        int magicNumber = randomGenerator.Next(1, 101);
 
-        int userGuess = 0;
+        int userGuess = -1;
         int attempts = 0;
 
-        while (userGuess != randomNumber)
+        // Keep asking until the user guesses correctly
+        while (userGuess != magicNumber)
         {
-            Console.Write("what is your guess?");
+            Console.Write("What is your guess? ");
             string userInput = Console.ReadLine();
             userGuess = int.Parse(userInput);
+
             attempts++;
 
-            if (userGuess < randomNumber)
+            if (userGuess < magicNumber)
             {
-                    Console.WriteLine("Higher");
+                Console.WriteLine("Higher");
             }
-            else if (userGuess > randomNumber)
+            else if (userGuess > magicNumber)
             {
                 Console.WriteLine("Lower");
             }
@@ -33,10 +35,8 @@ class Program
             {
                 Console.WriteLine("Congratulations! You guessed it!");
             }
-
-        
         }
+
         Console.WriteLine($"It took you {attempts} attempts to guess the number.");
-        }
-
     }
+}
