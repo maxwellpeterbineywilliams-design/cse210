@@ -10,9 +10,11 @@ class Program
         List<int> numbers = new List<int>();
 
         int userNumber = -1;
+
+        Console.WriteLine("please enter numbers, type 0 to finish");
         while (userNumber != 0)
         {
-            Console.Write("ENTER A NUMBER (0 to exit): ");
+            Console.Write("ENTER A NUMBER: ");
             string userInput = Console.ReadLine();
             userNumber = int.Parse(userInput);
             if (userNumber != 0)
@@ -32,5 +34,15 @@ class Program
             float average = (float)sum / numbers.Count;
             Console.WriteLine($"The average is: {average}");
         }
+        int largest = numbers[0];
+        foreach (int number in numbers)
+        {
+            if (number > largest)
+            {
+                largest = number;
+            }
+        }
+        Console.WriteLine($"The largest number is: {largest}");
+            
     }
 }
